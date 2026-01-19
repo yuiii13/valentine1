@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      background: #ffe6eb;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="questionBox">
+    <h1>Will you be my Valentine? 💘</h1>
+    <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+    <button id="noBtn" onclick="moveNo()">No 😭</button>
+  </div>
+
+  <script>
+    let messages = [
+      "Are you sure? 🥺",
+      "Pleaseeee 💕",
+      "Don’t break my heart 😭",
+      "Think again 💘",
+      "Last chance 😳"
+    ];
+
+    let index = 0;
+
+    function moveNo() {
+      const noBtn = document.getElementById("noBtn");
+      noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+      noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+
+      if (index < messages.length) {
+        document.querySelector("h1").innerText = messages[index];
+        index++;
+      }
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <h1 style="color:#ff4d6d; font-size:40px;">
+          I love you ❤️🥰
+        </h1>
+      `;
+    }
+  </script>
+
+</body>
+</html>
